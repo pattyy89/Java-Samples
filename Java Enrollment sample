@@ -1,0 +1,490 @@
+package enroll;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+public class sampleEnrollment {
+	
+	public static void main(String[] args) {
+	
+		welcome();
+		choose();
+		
+	
+		
+		
+	}
+	
+	
+	public static Scanner sc = new Scanner(System.in);
+	public static String enroll,enter,yn,name,cours,lastname,gname,schlPin,trsname,trslast,
+	trs;
+	public static long numbr;
+	public static int pay,press,crs,age,down,balance = 10000,grade,transfer;
+	
+	
+	
+	public static void welcome () {
+		
+		System.out.println("*****************");
+		System.out.println("*               *");
+		System.out.println("*    WELCOME!   *");
+		System.out.println("*               *");
+		System.out.println("*****************");
+		
+		
+		try {
+			TimeUnit.SECONDS.sleep(5);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	public static void course() {
+		
+		String [] arr = {"1.BSIT", "2.BSCPE", "3.BSCS", "4.BSHRM", "5.BSNURSING"};
+		for(int i =0; i<arr.length; i++) {
+			//System.out.println(arr[i]);
+		}
+		for(int j = 0; j < arr.length; j++ ) {
+			System.out.println(arr[j]);
+		}
+
+	}
+	
+	public static void choose() {
+		System.out.println("Old Student | Trasfer Student");
+		System.out.println();
+		System.out.print("Press 1 for Old Student and 2 for transferee: ");
+		transfer = sc.nextInt();
+		if(transfer == 1) {
+			stndpin();
+			enroll();
+		} if (transfer == 2) {
+			System.out.println("");
+			// make a code for enrollment
+			System.out.print("Enter your name:");
+			trsname = sc.next();
+			System.out.print("Enter your surname: ");
+			trslast = sc.next();
+			System.out.print("Enter your number: ");
+			numbr = sc.nextLong();
+			// make more application questions
+			System.out.println("Please wait a moment....");
+			try {
+				TimeUnit.SECONDS.sleep(5);
+			}catch(InterruptedException e) {
+				e.printStackTrace();
+			} System.out.println(""+ trsname);
+			System.out.println(""+trslast);
+			System.out.println(""+numbr);
+			// output the result 
+			
+		}
+	}
+	
+	private static void stndpin() {
+		System.out.print("Please Enter your school ID number: ");
+		schlPin = sc.next();
+		if(schlPin.equals("5555")) {
+		System.out.println();
+		System.out.println("Verifying.....");
+		try {
+			TimeUnit.SECONDS.sleep(5);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		} 
+		enroll();
+	} else if(schlPin.equals("2233")) {
+		System.out.println();
+		System.out.println("Verifying.....");
+		try {
+			TimeUnit.SECONDS.sleep(5);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		}
+		enroll();
+	} else if(schlPin.equals("1111")) {
+		System.out.println();
+		System.out.println("Verifying.....");
+		try {
+			TimeUnit.SECONDS.sleep(5);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		} 
+		enroll();
+	}else if(schlPin.equals("0989")) {
+		System.out.println();
+		System.out.println("Verifying.....");
+		System.out.println();
+		try {
+			TimeUnit.SECONDS.sleep(5);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		} 
+		enroll();
+	}else if(schlPin.equals("5432")) {
+		System.out.println();
+		System.out.println("Verifying.....");
+		System.out.println();
+		try {
+			TimeUnit.SECONDS.sleep(5);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		} 
+		enroll();
+	}else if(schlPin.equals("9876")) {
+		System.out.println();
+		System.out.println("Verifying.....");
+		System.out.println();
+		try {
+			TimeUnit.SECONDS.sleep(5);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		} 
+		enroll();
+	}else if(schlPin.equals("6666")) {
+		System.out.println();
+		System.out.println("Verifying.....");
+		System.out.println();
+		try {
+			TimeUnit.SECONDS.sleep(5);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		} 
+		enroll();
+	}else if(schlPin.equals("5678")) {
+		System.out.println();
+		System.out.println("Verifying.....");
+		System.out.println();
+		try {
+			TimeUnit.SECONDS.sleep(5);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		} 
+		enroll();
+	} else {
+		System.out.println("Invalid School Pin..Please try again in 5 sec.");
+		try {
+			TimeUnit.SECONDS.sleep(5);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		} stndpin();
+		
+	}
+}
+	
+	public static void enroll() {
+		
+		
+		System.out.print("Hi and Welcome to our School Registration Machine.");
+		System.out.println();
+		System.out.println("What would you like to do? ");
+		System.out.println();
+		System.out.println("Press 1. Enroll | 2. Pay Tuition | 3. check my grades ");
+		press = sc.nextInt();
+		
+		if (press == 1) {
+			System.out.println("Do you want to enroll? ");
+			System.out.println();
+			System.out.println("Press Y for yes and N for No");
+			yn = sc.next();
+			if(yn.equals("Y")) {
+				System.out.println("These are the Courses Available: ");
+				course();
+				
+				System.out.print("Enter the course you want to enroll: ");
+				crs = sc.nextInt();
+				if (crs == 1) {
+					System.out.println("You choose BSIT");
+					System.out.println();
+					System.out.print("Enter your FirstName: ");
+					name = sc.next();
+					System.out.print("Enter your last name: ");
+					lastname = sc.next();
+					System.out.print("Enter your course: " );
+					cours = sc.next();
+					System.out.print("Enter your age: ");
+					age = sc.nextInt();
+					
+					
+					System.out.println("verifying.....");
+					try {
+						TimeUnit.SECONDS.sleep(5);
+					}catch(InterruptedException e) {
+						e.printStackTrace();
+					}
+					
+					System.out.println(name + " " + lastname);
+					System.out.println(cours);
+					System.out.println(age);
+					
+					
+					try {
+						TimeUnit.SECONDS.sleep(5);
+					}catch(InterruptedException e) {
+						e.printStackTrace();
+					}
+					System.out.println("You've Enrolled! Thank you!");
+				} if (crs == 2) {
+					System.out.println("You choose BSCPE");
+					System.out.println();
+					System.out.print("Enter your FirstName: ");
+					name = sc.next();
+					System.out.print("Enter your last name: ");
+					lastname = sc.next();
+					System.out.print("Enter your course: " );
+					cours = sc.next();
+					System.out.print("Enter your age: ");
+					age = sc.nextInt();
+					
+					
+					System.out.println("verifying.....");
+					try {
+						TimeUnit.SECONDS.sleep(5);
+					}catch(InterruptedException e) {
+						e.printStackTrace();
+					}
+					
+					System.out.println(name + " " + lastname);
+					System.out.println(cours);
+					System.out.println(age);
+					
+					
+					try {
+						TimeUnit.SECONDS.sleep(5);
+					}catch(InterruptedException e) {
+						e.printStackTrace();
+					}
+					System.out.println("You've Enrolled! Thank you!");		
+				} if (crs == 3) {
+					System.out.println("You choose BSCS");
+					System.out.println();
+					System.out.print("Enter your FirstName: ");
+					name = sc.next();
+					System.out.print("Enter your last name: ");
+					lastname = sc.next();
+					System.out.print("Enter your course: " );
+					cours = sc.next();
+					System.out.print("Enter your age: ");
+					age = sc.nextInt();
+					
+					
+					System.out.println("verifying.....");
+					try {
+						TimeUnit.SECONDS.sleep(5);
+					}catch(InterruptedException e) {
+						e.printStackTrace();
+					}
+					
+					System.out.println(name + " " + lastname);
+					System.out.println(cours);
+					System.out.println(age);
+					
+					
+					try {
+						TimeUnit.SECONDS.sleep(5);
+					}catch(InterruptedException e) {
+						e.printStackTrace();
+					}
+					System.out.println("You've Enrolled! Thank you!");
+					
+					
+				}if (crs == 4) {
+					System.out.println("You choose BSHRM");
+					System.out.println();
+					System.out.print("Enter your FirstName: ");
+					name = sc.next();
+					System.out.print("Enter your last name: ");
+					lastname = sc.next();
+					System.out.print("Enter your course: " );
+					cours = sc.next();
+					System.out.print("Enter your age: ");
+					age = sc.nextInt();
+					
+					
+					System.out.println("verifying.....");
+					try {
+						TimeUnit.SECONDS.sleep(5);
+					}catch(InterruptedException e) {
+						e.printStackTrace();
+					}
+					
+					System.out.println(name + " " + lastname);
+					System.out.println(cours);
+					System.out.println(age);
+					
+					
+					try {
+						TimeUnit.SECONDS.sleep(5);
+					}catch(InterruptedException e) {
+						e.printStackTrace();
+					}
+					System.out.println("You've Enrolled! Thank you!");
+					
+					
+				}if (crs == 5) {
+					System.out.println("You choose BSNURSING");
+					System.out.println();
+					System.out.print("Enter your FirstName: ");
+					name = sc.next();
+					System.out.print("Enter your last name: ");
+					lastname = sc.next();
+					System.out.print("Enter your course: " );
+					cours = sc.next();
+					System.out.print("Enter your age: ");
+					age = sc.nextInt();
+					
+					
+					System.out.println("verifying.....");
+					try {
+						TimeUnit.SECONDS.sleep(5);
+					}catch(InterruptedException e) {
+						e.printStackTrace();
+					}
+					
+					System.out.println(name + " " + lastname);
+					System.out.println(cours);
+					System.out.println(age);
+					
+					
+					try {
+						TimeUnit.SECONDS.sleep(5);
+					}catch(InterruptedException e) {
+						e.printStackTrace();
+					}
+					System.out.println("You've Enrolled! Thank you!");
+									
+				}							
+			} if (yn.equals("N")) {
+				System.out.println("Do you want to go back to menu? ");
+				System.out.println();
+				System.out.println("Press Y for yes and N for N");
+				yn = sc.next();
+				if(yn.equals("Y")) {
+					try {
+						TimeUnit.SECONDS.sleep(5);
+					}catch(InterruptedException e) {
+						e.printStackTrace();
+  				} enroll();
+			}else {
+				System.out.println("Have a nice day!!");
+			}
+				
+			} 
+		} if (press == 2) {
+	
+			System.out.println("Do you want to pay your bills?");
+			System.out.println();
+			System.out.println("Press Y for yes and N for No");
+			yn = sc.next();
+			if(yn.equals("Y")) {
+				System.out.println("Your total balance is " + balance);
+				System.out.println();
+				System.out.print("please enter your payment: ");
+				down = sc.nextInt();
+				System.out.println("You Entered " + down + " pesos ");
+				System.out.println();
+				balance = down - balance;
+				System.out.println("Your remaining balance is " + balance);				
+				System.out.println("Do you need receipt? ");
+				yn = sc.next();
+				if(yn.equals("Y")) {
+					System.out.println("Already Paid total money is " + down + " pesos ");					
+					System.out.println("Thank you!");
+					if(yn.equals("N")) {
+						System.out.println("Thank you Have a good day ahead!");
+						System.exit(0);
+					}
+				}
+			}		
+	   } if (press == 3) {
+		  
+		   System.out.println("Please enter your name: ");
+		   gname = sc.next();
+		   if(gname.equals("patrick")) {
+			   System.out.println("Verifying....");
+			   try {
+				   TimeUnit.SECONDS.sleep(5);
+			   }catch(InterruptedException e) {
+				   e.printStackTrace();
+			   }
+			  String[] arr = {"Math: 75" , "Electrical: 95" , "Physics: 89", "History: 90", " Recess: 100" };
+			  for(int i = 0; i<arr.length; i++) {
+				  System.out.println(arr[i]);
+			  }
+			  
+			  
+		   } else if (gname.equals("tigas")) {	
+			   System.out.println("Verifying....");
+			   try {
+				   TimeUnit.SECONDS.sleep(5);
+			   }catch(InterruptedException e) {
+				   e.printStackTrace();
+			   } String[] arr = {"Math: 74" , "Electrical: 98" , "Physics: 65", "History: 75", "Recess: 120" };
+			   		for(int i = 0; i<arr.length; i++) {
+			   			System.out.println(arr[i]);
+			   		}
+			   	
+		   
+		   } else if(gname.equals("mark")) {
+			   System.out.println("Verifying....");
+			   try {
+				   TimeUnit.SECONDS.sleep(5);
+			   }catch(InterruptedException e) {
+				   e.printStackTrace();
+			   } String[] arr = {"Math: 65" , "Electrical: 55" , "Physics: 79", "History: 80", "Recess: 110" };
+			   for(int i = 0; i <arr.length; i++) {
+			   System.out.println(arr[i]);			   
+			   }
+			   
+		   } else if(gname.equals("bogart")){
+			   System.out.println("Verifying....");
+			   try {
+				   TimeUnit.SECONDS.sleep(5);
+			   }catch(InterruptedException e) {
+				   e.printStackTrace();
+			   }String[] arr = {"Math: 85" , "Electrical: 75" , "Physics: 79", "History: 90", "Recess: 150" };
+			   for(int i=0; i<arr.length;i++) {
+				   System.out.println(arr[i]);
+			   }
+		   } System.out.println("Do ypu want to check if your grade is passed? ");
+		    System.out.print("Press Y for yes and N for No: ");
+		    yn=sc.next();
+		    if(yn.equals("Y")) {
+		    	System.out.println("Add all your grades first and devide it by 5 ");
+		    	System.out.println();
+		    	try {
+		    		TimeUnit.SECONDS.sleep(5);
+		    	}catch(InterruptedException e) {
+		    		e.printStackTrace();
+		    	}System.out.print("Enter the total of your grade: ");
+		    	grade = sc.nextInt();
+		    	if(grade == 100) {
+		    		System.out.println("Outstanding!");
+		    	} else if(grade >= 95) {
+		    		System.out.println("Verygood!");
+		    	}else if (grade >= 90) {
+		    		System.out.println("Excellent!");
+		    	}else if(grade >= 85) {
+		    		System.out.println("Well done!");
+		    	}else if (grade >= 80) {
+		    		System.out.println("Passed!");
+		    	}else if (grade >= 75) {
+		    		System.out.println("Yawa baksak");
+		    	} else {
+		    		System.out.println("Bawi nalang next year :) ");
+		    	}
+		    	
+		    	
+		    	
+		    	}
+		    }
+	   }
+   }
+   
+   
