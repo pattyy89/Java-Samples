@@ -1,0 +1,315 @@
+package Service;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+import java.util.concurrent.*;
+
+public class Serv {
+
+    public static void main(String[] args) 
+    {
+    	enter();
+    	Pin();   	
+    	menu();
+    	process();     
+    }
+    
+    public static Scanner sc = new Scanner (System.in);
+    public static double widraw,balance =5000,deposit,amount,transfer;
+    public static int num,language,pin;
+    public static String press,number,order;
+    
+
+    public static void  menu() {
+    	System.out.println("			*******************");
+    	System.out.println("			Welcome to ATM");
+    	System.out.println("			1: Balance");
+    	System.out.println("			2: Widraw");
+    	System.out.println("			3: Deposit");
+    	System.out.println("			4. Cancel");  	
+    	System.out.println("			******************");
+       	System.out.println();
+       	
+       	
+    }   
+    public static void enter() {
+    	System.out.print("Please Insert your card:");
+     	System.out.println();
+    	try {
+    		TimeUnit.SECONDS.sleep(5);
+    	}catch(InterruptedException e) {
+    		e.printStackTrace();
+    	}
+    	System.out.print("Loading...");
+    	System.out.println();
+    	try {
+    		TimeUnit.SECONDS.sleep(5);
+    	} catch(InterruptedException e) {
+    		e.printStackTrace();
+    	} System.out.println("Select language:  1. English  ");
+    		language = sc.nextInt(); 
+    		if(language == 1) {
+    			System.out.print("Loading...");
+    	    	System.out.println();
+    	    	try {
+    	    		TimeUnit.SECONDS.sleep(5);
+    	    	} catch(InterruptedException e) {
+    	    		e.printStackTrace();	    		
+    		} System.out.println("You choose English");
+    		System.out.println();
+   		}
+    	 	try {
+    	 		TimeUnit.SECONDS.sleep(5);
+    	 	}catch(InterruptedException e) {
+    	 		e.printStackTrace();
+    	 	}
+    	 
+    } 
+    
+    	 private static void Pin() {
+    		 
+    	System.out.print("Please Enter your pin:");
+    	  pin = sc.nextInt();	
+    	  if(pin == 1234){
+    		  System.out.println();
+    		  System.out.println("Verifying....");
+    		  System.out.println();
+    		  try {
+    		  		TimeUnit.SECONDS.sleep(5);
+    		  	}catch(InterruptedException e) {
+    		  		e.printStackTrace();    		    		  
+    		  	}    
+    		  menu();
+        	  process();
+    	  }  else if(pin == 8966) {
+    		  System.out.println();
+    		  System.out.println("verifying....");
+    		  System.out.println();
+    		  try {
+    			  TimeUnit.SECONDS.sleep(5);
+    		  }catch(InterruptedException e) {
+    			  e.printStackTrace();
+    		  }
+    		  menu();
+    		  process();
+    	  }  else if(pin == 5555) {
+    		  System.out.println();
+    		  System.out.println("verifying....");
+    		  System.out.println();
+    		  try {
+    			  TimeUnit.SECONDS.sleep(5);
+    		  }catch(InterruptedException e) {
+    			  e.printStackTrace();
+    		  }
+    		  menu();
+    		  process();
+    	  } else if(pin == 4567) {
+    		  System.out.println();
+    		  System.out.println("verifying....");
+    		  System.out.println();
+    		  try {
+    			  TimeUnit.SECONDS.sleep(5);
+    		  }catch(InterruptedException e) {
+    			  e.printStackTrace();
+    		  }
+    		  menu();
+    		  process();
+    	  } else {
+    		  System.out.println("Invalid Pin...Please try again");
+    		  try {
+    			  TimeUnit.SECONDS.sleep(4);
+    		  }catch(InterruptedException e) {
+    			  e.printStackTrace();
+    		  }
+    		  Pin();
+    	  }
+    	 
+    
+    }
+    
+   public static void process() {    		
+    	System.out.println("Please select a number: ");
+    	num = sc.nextInt();
+    	
+    	if (num == 1) {
+    		System.out.println("You choose balance.");
+    		System.out.println("Press Y to see your balance and N for NO:");
+    		press = sc.next();
+    		if(press.equals("N")) {
+        		
+    			System.out.println("Do you want to go to menu?");
+    			System.out.println("Press Y to menu and N for NO:");
+        		press = sc.next();
+        		menu();
+        		process();  
+        		
+    		}   if (press.equals("N")) {
+    			System.out.println("Thank you! Come again");
+    			System.exit(0);
+    		}
+    		if (press.equals("Y")) {
+    			System.out.println(balance);
+    			System.out.println("Do you wanna deposit? ");
+    			System.out.println();
+    			System.out.println("Press Y to deposit and N for NO:");
+        		press = sc.next();
+        		if(press.equals("N")) {
+            		
+        			System.out.println("Do you want to go to menu?");
+        			System.out.println();
+        			System.out.println("Press Y to menu and N for NO:");
+            		press = sc.next();
+            		menu();
+            		process();  
+            		
+        		}   if (press.equals("N")) {
+        			System.out.println("Thank you! Come again");
+        			System.exit(0);
+        		}
+        		System.out.print("How much do you want to deposit?");
+        		deposit = sc.nextDouble();
+        		System.out.println("Verifying....");
+        		try {
+        			TimeUnit.SECONDS.sleep(5);
+        		} catch(InterruptedException e) {
+        			e.printStackTrace();
+        		}balance = balance + deposit;
+        		System.out.println("You deposited " + balance + "Php ");
+        		System.out.println();
+        		System.out.println("do you want to go back to menu?");
+        		System.out.println();
+        		System.out.print("Press Y for yes and N for No: ");
+        		press = sc.next();
+        		if(press.equals("Y")) {
+        			menu();
+        			process();
+        		} else if(press.equals("N")) {
+        			System.out.println();
+        			System.out.println("Thank you come again!!");
+        			System.exit(0);;
+        		}
+        		// go back to menu and input again and add the current deposit to deposit the will come up
+        		
+    		} 
+    		
+    	}  if(num == 2) {
+    		System.out.println("Do you want to see your balance before you widraw? ");
+    		System.out.print("Press Y for yes and N for No:");
+    		press = sc.next();
+    		if(press.equalsIgnoreCase("Y")) {
+    			deposit =deposit + balance ;
+    			System.out.println("This is your balance: " + balance);
+    		} if(press.equals("N")) {
+    			System.out.println(" Do you want to widraw?");
+    			System.out.println("Press Y to widraw and N for No");
+    			press = sc.next();
+    			if(press.equalsIgnoreCase("Y")) {
+    				System.out.println("Enter the amount you want to widraw: ");
+    				amount = sc.nextDouble();
+    				System.out.println("Please wait...");
+    				try {
+    					TimeUnit.SECONDS.sleep(5);
+    				}catch(InterruptedException e) {
+    					 e.printStackTrace();  					
+    				}   				
+    				System.out.println("You widraw " + amount );
+    				balance = balance - amount;
+    				System.out.println("your total balance is " + balance);
+    				System.out.println();
+    				System.out.println("Please collect your money..");
+         			System.out.println();
+         			System.out.println("Do want to go back to menu?");
+         			System.out.println();
+    				System.out.println("Press enter Y to menu and N for NO:");
+            		press = sc.next();
+            		if(press.equals("Y")) {
+            			menu();
+            			process();
+            			
+            		}if(press.equals("N")){
+            			 System.out.println("Do you need receipt ? ");
+            			 System.out.println("Please Enter Y for yes and N for No");
+            			 press = sc.next();
+            			 if(press.equals("Y")) {          		
+                 			System.out.println("Wait for the receipt");
+                 			try {
+                 				TimeUnit.SECONDS.sleep(5);
+                 			}catch(InterruptedException e) {
+                 				e.printStackTrace();
+                 			} System.out.println("Widraw : "        + amount);
+                 				System.out.println("total Balance " + balance);         
+            			 }else {
+            				 System.out.println("Thank you Come Again!");
+            			 }
+            		
+    			}
+    			
+    		}
+    			
+    		}
+    		
+    	}  if(num == 3) {
+    		System.out.println("You choose deposit:");
+    		System.out.println("Your current balance is  " + balance);
+    		System.out.println("Do you want to deposit? ");
+    		System.out.println("Press Y to deposit and N for No");
+    		press = sc.next();
+    		if(press.equals("N")) {
+				System.out.println("Thank you!");
+			}
+    		if(press.equals("Y")) {
+    			System.out.print("Enter the amount you want to deposit: ");
+    			deposit = sc.nextDouble();
+    			try {
+    				TimeUnit.SECONDS.sleep(4);
+    			}catch(InterruptedException e) {
+    				e.printStackTrace();   				
+    			}
+    			 System.out.println("Do you need receipt ? ");
+    			 System.out.println("Please Enter Y for yes and N for No");
+    			 press = sc.next();
+    			 if(press.equals("Y")) {          		
+         			System.out.println("Wait for the receipt");
+         			try {
+         				TimeUnit.SECONDS.sleep(5);
+         			}catch(InterruptedException e) {
+         				e.printStackTrace();
+         			} System.out.println();
+        			System.out.println("You've deposit " + deposit);
+        			balance = deposit + balance;
+        			System.out.println("Your current balance is " + balance);    			
+    		}   if(press.equals("N")) { 	 	
+    			System.out.println("Thank you come again!");
+    		}
+    	}  
+    		
+    } if (num == 4) {
+    	System.out.println("Are you sure do you want to Cancel? ");
+    	System.out.println();
+    	System.out.println("Press Y for yes N for No");
+    	press = sc.next();
+    	if(press.equals("Y")) {
+    		System.out.println("Thank you for come again!!");
+    		System.exit(0);
+    	}
+    	 if(press.equals("N")){
+    		System.out.println("Do you want to go back to menu?");
+    		System.out.println("press Y and N");
+    		press = sc.next();
+    		if(press.equals("Y")) {
+    			
+    		} if(press.equals("N")) {
+    			System.out.println("Come Again!!");
+    			System.exit(0);
+    		}
+    	}
+    	
+    }
+    
+   
+    	
+    }    
+}
+   
